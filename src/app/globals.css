@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  /* theme colors */
+  --color-theme-50: #fffcf2;
+  --color-theme-100: #fff9e6;
+  --color-theme-200: #fff0cc;
+  --color-theme-300: #ffe6b3;
+  --color-theme-400: #ffdd99;
+  --color-theme-500: #ffc843;
+  --color-theme-600: #e9b13f;
+  --color-theme-700: #d89c38;
+  --color-theme-800: #c28730;
+  --color-theme-900: #ab7228;
+
+  /* light or dark content colors */
+  --color-content-light-bg: #fffffc;
+  --color-content-light-text: #222222;
+  --color-content-light-heading: #222222;
+  --color-content-light-desc: #555;
+  --color-content-dark-bg: #1a1a1a;
+  --color-content-dark-text: #f3f4f6;
+  --color-content-dark-heading: #ffffff;
+  --color-content-dark-desc: #ccc;
+}
+
+body {
+  @apply bg-content-light-bg text-content-light-text dark:bg-content-dark-bg dark:text-content-dark-text;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Helvetica Neue,
+    Arial,
+    Noto Sans,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    Segoe UI Symbol,
+    "Noto Color Emoji";
+}
+
+.center-content {
+  @apply mx-auto max-w-3xl p-4;
+}
+
+.prose h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-content-light-heading dark:text-content-dark-heading;
+}
+
+:not(pre) > code {
+  @apply bg-theme-50 text-theme-700 dark:text-theme-500 m-1 rounded-md px-1 py-0.5 dark:bg-gray-700;
+}
+
+code {
+  counter-reset: step;
+  counter-increment: step 0;
+}
+
+code .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 2rem;
+  margin-right: 1.5rem;
+  display: inline-block;
+  text-align: right;
+}
+
+:is(ul) ul {
+  list-style-type: circle;
+}
