@@ -1,6 +1,5 @@
 import { getPostInfoById, getPostInfos } from "@/utils/post";
 import React from "react";
-import { slugify } from "@/utils/slugify";
 import dynamic from "next/dynamic";
 import { SITE_TITLE } from "@/consts";
 
@@ -16,7 +15,6 @@ const PostDetailPage = async (props: IProps) => {
   const { slug } = await props.params;
   const info = await getPostInfoById(slug);
   const PostContent = dynamic(() => import(`@/posts/${info.filename}`));
-
   return (
     <div className="prose">
       <h1 className="text-center text-4xl font-black">
@@ -34,10 +32,8 @@ export const dynamicParams = false;
 
 export const generateStaticParams = async () => {
   const infos = await getPostInfos();
-
-  return infos.map((item) => ({
-    slug: slugify(item.id),
-  }));
+  const slugs = infos.map((item) => item.id);
+  return slugs.map((slug) => ({ slug }));
 };
 
 export const generateMetadata = async ({ params }: IProps) => {

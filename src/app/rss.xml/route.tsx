@@ -1,6 +1,9 @@
 import Rss from "rss";
 import { getPostInfos } from "@/utils/post";
 import { SITE_DESC, SITE_TITLE, SITE_URL } from "@/consts";
+
+export const dynamic = "force-static";
+
 export async function GET() {
   const posts = await getPostInfos();
   const feed = new Rss({

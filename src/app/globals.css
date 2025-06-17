@@ -45,6 +45,29 @@ body {
     "Noto Color Emoji";
 }
 
+::selection {
+  @apply bg-theme-400;
+}
+
+[data-theme="dark"] ::selection {
+  @apply bg-theme-900;
+}
+
+/* 整个滚动条 */
+::-webkit-scrollbar {
+  @apply h-2 w-2;
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 200, 67, 0.8);
+}
+
+/* 滚动条滑块悬停 */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-theme-700;
+}
+
 .center-content {
   @apply mx-auto max-w-3xl p-4;
 }

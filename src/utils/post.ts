@@ -2,7 +2,6 @@ import { globby } from "globby";
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
-import { slugify } from "./slugify";
 
 const POSTS_ROOT_DIR = "src/posts";
 
@@ -25,7 +24,7 @@ export const getPostInfos = async () => {
       const steam = await fs.readFile(filepath);
       const fontmatter = matter(steam).data;
       return {
-        id: slugify(fontmatter.title),
+        id: fontmatter.id,
         filename,
         fontmatter,
       };
@@ -44,7 +43,7 @@ export const getPostInfos = async () => {
 
 export const getPostInfoById = async (id: string) => {
   const allPostsInfo = await getPostInfos();
-  const info = allPostsInfo.find((item) => item.id === decodeURI(id));
+  const info = allPostsInfo.find((item) => item.id === id);
   if (!info) {
     throw new Error("post not found");
   }

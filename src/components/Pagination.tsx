@@ -38,7 +38,6 @@ const Pagination = async ({ page }: IProps) => {
         <span className="flex items-center gap-0.5">
           <svg
             fill="currentColor"
-            stroke-width="0"
             viewBox="0 0 24 24"
             height="20"
             width="20"
@@ -59,7 +58,7 @@ const Pagination = async ({ page }: IProps) => {
           <svg
             stroke="currentColor"
             fill="currentColor"
-            stroke-width="0"
+            strokeWidth="0"
             viewBox="0 0 24 24"
             height="20"
             width="20"

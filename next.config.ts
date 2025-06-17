@@ -4,6 +4,7 @@ import remarkFrontmatter from "remark-frontmatter";
 
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
+  output: "export",
   /* config options here */
   pageExtensions: ["tsx", "md", "mdx"],
 };
@@ -16,7 +17,7 @@ const withMDX = createMDX({
       () => (tree) => {
         // 移除原始 Front Matter 节点
         tree.children = tree.children.filter(
-          (node: any) => node.type !== "yaml"
+          (node: any) => node.type !== "yaml",
         );
       },
     ],
