@@ -1,7 +1,7 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import ThemeSwitcher from "./ThemeSwitcher";
+import CustomImage from "./CustomImage";
 
 const LINKS = [
   {
@@ -40,7 +40,7 @@ const Header = () => {
     <header>
       <div className="flex items-center justify-between p-8">
         <Link href="/">
-          <Image
+          <CustomImage
             aria-hidden
             width={40}
             height={35}

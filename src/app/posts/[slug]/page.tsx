@@ -16,7 +16,7 @@ const PostDetailPage = async (props: IProps) => {
   const info = await getPostInfoById(slug);
   const PostContent = dynamic(() => import(`@/posts/${info.filename}`));
   return (
-    <div className="prose">
+    <article className="prose">
       <h1 className="text-center text-4xl font-black">
         {info.fontmatter.title}
       </h1>
@@ -24,7 +24,7 @@ const PostDetailPage = async (props: IProps) => {
         {info.fontmatter.date}
       </div>
       <PostContent />
-    </div>
+    </article>
   );
 };
 

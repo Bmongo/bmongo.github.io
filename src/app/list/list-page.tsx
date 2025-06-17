@@ -1,8 +1,8 @@
 import { LIST_POST_PAGE_SIZE } from "@/consts";
 import { getPostInfos } from "@/utils/post";
 import React from "react";
-import ListItem from "@/components/ListItem";
 import Pagination from "@/components/Pagination";
+import Link from "next/link";
 
 interface IProps {
   page: number;
@@ -20,7 +20,12 @@ const PostList = async ({ page }: IProps) => {
       <ul>
         {list.map((item) => (
           <li key={item.id} className="my-4">
-            <ListItem item={item} />
+            <Link href={`/posts/${item.id}`} className="common-link text-xl">
+              {item.fontmatter.title}
+            </Link>
+            <p className="text-content-light-desc dark:text-content-dark-desc m-1">
+              {item.fontmatter.date}
+            </p>
           </li>
         ))}
       </ul>

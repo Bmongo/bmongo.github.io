@@ -72,6 +72,10 @@ body {
   @apply mx-auto max-w-3xl p-4;
 }
 
+.common-link {
+  @apply text-theme-600 font-medium hover:underline hover:underline-offset-6;
+}
+
 .prose h1,
 h2,
 h3,

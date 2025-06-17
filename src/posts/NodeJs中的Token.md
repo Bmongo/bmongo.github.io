@@ -2,7 +2,8 @@
 id: "nodejs-token"
 title: NodeJs中的Token
 date: 2020/7/9
-tags: NodeJs
+tags:
+  - NodeJs
 ---
 
 #### 一、Token

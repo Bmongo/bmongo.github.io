@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Script from "next/script";
 import { SITE_DESC, SITE_TITLE } from "@/consts";
+import { getPathWithBasePath } from "@/utils/path";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,10 @@ export default function RootLayout({
   return (
     <html lang="zh" suppressHydrationWarning>
       <head>
-        <Script strategy="beforeInteractive" src="/toggle-theme.js"></Script>
+        <Script
+          strategy="beforeInteractive"
+          src={getPathWithBasePath("/toggle-theme.js")}
+        ></Script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-lvh antialiased`}

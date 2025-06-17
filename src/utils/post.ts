@@ -12,6 +12,7 @@ export interface PostInfoItem {
     title: string;
     date: string;
     desc: string;
+    tags: string[] | string;
   };
 }
 
@@ -48,4 +49,37 @@ export const getPostInfoById = async (id: string) => {
     throw new Error("post not found");
   }
   return info;
+};
+
+export const getAllPostTags = async () => {
+  const posts = await getPostInfos();
+  const tags = new Map<string, number>();
+
+  posts.forEach((post) => {
+    const fontmatterTags = post.fontmatter.tags;
+    if (typeof fontmatterTags === "string") {
+      tags.set(fontmatterTags, (tags.get(fontmatterTags) || 0) + 1);
+    } else {
+      fontmatterTags.forEach((fontmatterTags) => {
+        tags.set(fontmatterTags, (tags.get(fontmatterTags) || 0) + 1);
+      });
+    }
+  });
+
+  return Array.from(tags.entries()).map((item) => ({
+    name: item[0],
+    count: item[1],
+  }));
+};
+
+export const getPostInforByTag = async (tag: string) => {
+  const posts = await getPostInfos();
+  return posts.filter((post) => {
+    const fontmatterTags = post.fontmatter.tags;
+    if (typeof fontmatterTags === "string") {
+      return fontmatterTags === tag;
+    } else {
+      return fontmatterTags.includes(tag);
+    }
+  });
 };

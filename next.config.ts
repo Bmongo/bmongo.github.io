@@ -5,6 +5,7 @@ import remarkFrontmatter from "remark-frontmatter";
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
   output: "export",
+  basePath: process.env.BASE_PATH,
   /* config options here */
   pageExtensions: ["tsx", "md", "mdx"],
 };
