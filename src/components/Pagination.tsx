@@ -18,6 +18,8 @@ const LinkButton = ({
 }) => (
   <Link
     href={href}
+    aria-hidden={disabled}
+    tabIndex={disabled ? -1 : 0}
     className={`${disabled ? "pointer-events-none opacity-50 select-none" : ""} hover:text-theme-600 my-4`}
   >
     {children}

@@ -9,13 +9,13 @@ const TagsPage = async () => {
       <h2 className="mb-4 text-xl font-medium dark:text-slate-200">Tags:</h2>
       <section>
         {tags.map((tag) => (
-          <p key={tag.name} className="my-4 flex items-center">
+          <div key={tag.name} className="my-4 flex items-center">
             <TagCustomLink
               href={`/tags/${tag.name}`}
               title={tag.name}
               suffix={tag.count}
             />
-          </p>
+          </div>
         ))}
       </section>
     </>
