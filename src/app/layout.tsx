@@ -5,6 +5,9 @@ import Header from "@/components/Header";
 import Script from "next/script";
 import { SITE_DESC, SITE_TITLE } from "@/consts";
 import { getPathWithBasePath } from "@/utils/path";
+import SkipContentHolder, {
+  MAIN_CONTENT_ID,
+} from "@/components/SkipContentHolder";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh" suppressHydrationWarning>
+    <html lang="zh" suppressHydrationWarning className="scroll-smooth">
       <head>
         <Script
           strategy="beforeInteractive"
@@ -37,8 +40,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-lvh antialiased`}
       >
+        <SkipContentHolder />
         <Header />
-        <main className="center-content">{children}</main>
+        <main id={MAIN_CONTENT_ID} className="center-content">
+          {children}
+        </main>
       </body>
     </html>
   );

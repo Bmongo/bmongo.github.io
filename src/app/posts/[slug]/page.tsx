@@ -2,6 +2,8 @@ import { getPostInfoById, getPostInfos } from "@/utils/post";
 import React from "react";
 import dynamic from "next/dynamic";
 import { SITE_TITLE } from "@/consts";
+import Script from "next/script";
+import { getPathWithBasePath } from "@/utils/path";
 
 interface IParams {
   slug: string;
@@ -24,6 +26,10 @@ const PostDetailPage = async (props: IProps) => {
         {info.fontmatter.date}
       </div>
       <PostContent />
+      <Script
+        strategy="beforeInteractive"
+        src={getPathWithBasePath("/progress-bar.js")}
+      />
     </article>
   );
 };

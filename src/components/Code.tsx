@@ -25,7 +25,7 @@ export const Code = async ({ code, lang }: IProps) => {
       pre: (props) => (
         <pre
           {...props}
-          className={`mb-4 py-4 rounded-md overflow-auto ${props.className}`}
+          className={`mb-4 overflow-auto rounded-md py-4 ${props.className}`}
         />
       ),
     },

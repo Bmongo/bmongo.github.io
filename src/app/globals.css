@@ -68,6 +68,14 @@ body {
   @apply bg-theme-700;
 }
 
+:focus-visible {
+  @apply outline-offset-4;
+}
+
+#progress-bar {
+  @apply bg-theme-600 fixed top-0 left-0 z-50 h-1 rounded-r-sm;
+}
+
 .center-content {
   @apply mx-auto max-w-3xl p-4;
 }
