@@ -25,7 +25,9 @@ const PostDetailPage = async (props: IProps) => {
       <div className="text-content-light-desc dark:text-content-dark-desc my-3 text-center">
         {info.fontmatter.date}
       </div>
-      <PostContent />
+      <div className="text-base leading-7">
+        <PostContent />
+      </div>
       <Script
         strategy="beforeInteractive"
         src={getPathWithBasePath("/progress-bar.js")}

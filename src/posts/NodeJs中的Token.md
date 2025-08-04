@@ -1,12 +1,12 @@
 ---
-id: "nodejs-token"
+id: nodejs-token
 title: NodeJs中的Token
 date: 2020/7/9
 tags:
   - NodeJs
 ---
 
-#### 一、Token
+## 一、Token
 
 - 什么是 Token？
 
@@ -30,7 +30,7 @@ tags:
 
 <!-- more -->
 
-#### 二、JWT 实现过程
+## 二、JWT 实现过程
 
 - JWT 分为三个部分 header、payload、verify signature
 
@@ -95,11 +95,11 @@ tags:
 
   每次客户端的请求都需要带上这个 token，一般是把 token 写入到请求的 headers 中
 
-#### 三、Node.js 中使用
+## 三、Node.js 中使用
 
 Node.js 中使用 JWT
 
-##### 1.开始使用
+### 1.开始使用
 
 通过 npm 包`jsonwebtoken`来完成 token 的生成和验证
 
@@ -107,7 +107,7 @@ Node.js 中使用 JWT
 npm install --save jsonwebtoken
 ```
 
-##### 2.生成、验证 Token
+### 2.生成、验证 Token
 
 ```js
 const jwt = require("jsonwebtoken"); // [!code highlight]
@@ -138,7 +138,7 @@ function verifyToken(token) {
 }
 ```
 
-##### 3.使用
+### 3.使用
 
 ```js
 const express = require("express");

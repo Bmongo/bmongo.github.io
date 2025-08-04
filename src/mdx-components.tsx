@@ -4,20 +4,23 @@ import { Code } from "./components/Code";
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...components,
-    h1: (props) => <h1 className="text-4xl font-black my-4" {...props} />,
-    h2: (props) => <h2 className="text-3xl font-black my-4" {...props} />,
-    h3: (props) => <h3 className="text-2xl font-black my-4" {...props} />,
-    h4: (props) => <h4 className="text-xl font-black my-4" {...props} />,
-    h5: (props) => <h5 className="font-black my-4" {...props} />,
-    p: (props) => <p className="text-lg my-4" {...props} />,
-    ul: (props) => <ul className="list-disc pl-6 my-4" {...props} />,
-    ol: (props) => <ol className="list-decimal pl-6 pb-4" {...props} />,
-    li: (props) => <li className="text-lg" {...props} />,
+    h1: (props) => <h1 className="my-4 text-3xl font-black" {...props} />,
+    h2: (props) => (
+      <h2
+        className="my-4 text-2xl font-black not-first-of-type:mt-8"
+        {...props}
+      />
+    ),
+    h3: (props) => <h3 className="my-4 text-xl font-black" {...props} />,
+    p: (props) => <p className="my-5" {...props} />,
+    ul: (props) => <ul className="my-4 list-disc pl-6" {...props} />,
+    ol: (props) => <ol className="list-decimal pb-4 pl-6" {...props} />,
+    li: (props) => <li {...props} />,
     hr: (props) => <hr className="my-4" {...props} />,
     blockquote: (props) => (
       <blockquote
         style={{ paddingBottom: 0 }}
-        className="border-l-4 pl-4 my-4"
+        className="border-theme-600 my-4 border-l-4 pl-4 [&>p]:my-1 [&>p]:italic"
         {...props}
       />
     ),
