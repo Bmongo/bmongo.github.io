@@ -1,5 +1,5 @@
 import TagCustomLink from "@/components/TagCustomLink";
-import { getAllPostTags, getPostInforByTag } from "@/utils/post";
+import { getAllPostTags, getPostInfoByTag } from "@/utils/post";
 import React from "react";
 
 interface IProps {
@@ -10,7 +10,7 @@ interface IProps {
 
 const TagDetailPage = async (props: IProps) => {
   const { tag } = await props.params;
-  const posts = await getPostInforByTag(tag);
+  const posts = await getPostInfoByTag(tag);
   return (
     <section>
       <h2 className="mb-4 text-xl font-medium dark:text-slate-200">

@@ -72,7 +72,7 @@ export const getAllPostTags = async () => {
   }));
 };
 
-export const getPostInforByTag = async (tag: string) => {
+export const getPostInfoByTag = async (tag: string) => {
   const posts = await getPostInfos();
   return posts.filter((post) => {
     const frontmatterTags = post.frontmatter.tags;
