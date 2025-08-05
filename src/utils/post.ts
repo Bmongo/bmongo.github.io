@@ -8,7 +8,7 @@ const POSTS_ROOT_DIR = "src/posts";
 export interface PostInfoItem {
   id: string;
   filename: string;
-  fontmatter: {
+  frontmatter: {
     title: string;
     date: string;
     desc: string;
@@ -23,19 +23,19 @@ export const getPostInfos = async () => {
     filenames.map(async (filename) => {
       const filepath = path.resolve(POSTS_ROOT_DIR, filename);
       const steam = await fs.readFile(filepath);
-      const fontmatter = matter(steam).data;
+      const frontmatter = matter(steam).data;
       return {
-        id: fontmatter.id,
+        id: frontmatter.id,
         filename,
-        fontmatter,
+        frontmatter,
       };
     }),
   );
 
   result.sort((a, b) => {
     return (
-      new Date(b.fontmatter.date).getTime() -
-      new Date(a.fontmatter.date).getTime()
+      new Date(b.frontmatter.date).getTime() -
+      new Date(a.frontmatter.date).getTime()
     );
   });
 
@@ -56,12 +56,12 @@ export const getAllPostTags = async () => {
   const tags = new Map<string, number>();
 
   posts.forEach((post) => {
-    const fontmatterTags = post.fontmatter.tags;
-    if (typeof fontmatterTags === "string") {
-      tags.set(fontmatterTags, (tags.get(fontmatterTags) || 0) + 1);
+    const frontmatterTags = post.frontmatter.tags;
+    if (typeof frontmatterTags === "string") {
+      tags.set(frontmatterTags, (tags.get(frontmatterTags) || 0) + 1);
     } else {
-      fontmatterTags.forEach((fontmatterTags) => {
-        tags.set(fontmatterTags, (tags.get(fontmatterTags) || 0) + 1);
+      frontmatterTags.forEach((frontmatterTags) => {
+        tags.set(frontmatterTags, (tags.get(frontmatterTags) || 0) + 1);
       });
     }
   });
@@ -75,11 +75,11 @@ export const getAllPostTags = async () => {
 export const getPostInforByTag = async (tag: string) => {
   const posts = await getPostInfos();
   return posts.filter((post) => {
-    const fontmatterTags = post.fontmatter.tags;
-    if (typeof fontmatterTags === "string") {
-      return fontmatterTags === tag;
+    const frontmatterTags = post.frontmatter.tags;
+    if (typeof frontmatterTags === "string") {
+      return frontmatterTags === tag;
     } else {
-      return fontmatterTags.includes(tag);
+      return frontmatterTags.includes(tag);
     }
   });
 };

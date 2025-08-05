@@ -21,8 +21,8 @@ const TagDetailPage = async (props: IProps) => {
           <li key={post.id} className="mb-4">
             <TagCustomLink
               href={`/posts/${post.id}`}
-              title={post.fontmatter.title}
-              suffix={post.fontmatter.date}
+              title={post.frontmatter.title}
+              suffix={post.frontmatter.date}
             />
           </li>
         ))}

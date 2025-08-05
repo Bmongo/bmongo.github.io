@@ -20,11 +20,14 @@ const PostList = async ({ page }: IProps) => {
       <ul>
         {list.map((item) => (
           <li key={item.id} className="my-4">
-            <Link href={`/posts/${item.id}`} className="common-link text-xl">
-              {item.fontmatter.title}
+            <Link
+              href={`/posts/${item.id}`}
+              className="common-link text-xl font-medium"
+            >
+              {item.frontmatter.title}
             </Link>
             <p className="text-content-light-desc dark:text-content-dark-desc m-1">
-              {item.fontmatter.date}
+              {item.frontmatter.date}
             </p>
           </li>
         ))}

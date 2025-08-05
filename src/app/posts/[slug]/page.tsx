@@ -20,10 +20,10 @@ const PostDetailPage = async (props: IProps) => {
   return (
     <article className="prose">
       <h1 className="text-center text-4xl font-black">
-        {info.fontmatter.title}
+        {info.frontmatter.title}
       </h1>
       <div className="text-content-light-desc dark:text-content-dark-desc my-3 text-center">
-        {info.fontmatter.date}
+        {info.frontmatter.date}
       </div>
       <div className="text-base leading-7">
         <PostContent />
@@ -47,7 +47,7 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({ params }: IProps) => {
   const slug = (await params).slug;
   const info = await getPostInfoById(slug);
-  const str = `${info.fontmatter.title} | ${SITE_TITLE}`;
+  const str = `${info.frontmatter.title} | ${SITE_TITLE}`;
   return {
     title: str,
     description: str,

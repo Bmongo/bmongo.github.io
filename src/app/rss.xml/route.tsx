@@ -15,10 +15,10 @@ export async function GET() {
   });
   posts.forEach((post) => {
     feed.item({
-      title: post.fontmatter.title || post.id,
-      description: post.fontmatter.desc,
+      title: post.frontmatter.title || post.id,
+      description: post.frontmatter.desc,
       url: `${SITE_URL}${getPathWithBasePath(`/posts/${post.id}`)}`,
-      date: post.fontmatter.date,
+      date: post.frontmatter.date,
     });
   });
   return new Response(feed.xml(), {

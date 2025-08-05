@@ -11,7 +11,7 @@ const TagCustomLink = (props: IProps) => {
   return (
     <div className="flex">
       <p key={props.title} className="my-4">
-        <Link className="common-link text-xl" href={props.href}>
+        <Link className="common-link text-xl font-medium" href={props.href}>
           {props.title}
         </Link>
         <span className="mx-3 opacity-50">{props.suffix}</span>

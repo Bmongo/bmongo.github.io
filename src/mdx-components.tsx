@@ -13,10 +13,26 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     h3: (props) => <h3 className="my-4 text-xl font-black" {...props} />,
     p: (props) => <p className="my-5" {...props} />,
-    ul: (props) => <ul className="my-4 list-disc pl-6" {...props} />,
-    ol: (props) => <ol className="list-decimal pb-4 pl-6" {...props} />,
-    li: (props) => <li {...props} />,
+    ul: (props) => (
+      <ul
+        className="[&>li::marker]:text-theme-700 my-4 list-disc pl-6"
+        {...props}
+      />
+    ),
+    ol: (props) => (
+      <ol
+        className="[&>li::marker]:text-theme-700 list-decimal pb-4 pl-6"
+        {...props}
+      />
+    ),
     hr: (props) => <hr className="my-4" {...props} />,
+    a: (props) => (
+      <a
+        className="hover:text-theme-600 underline underline-offset-6"
+        target="_blank"
+        {...props}
+      />
+    ),
     blockquote: (props) => (
       <blockquote
         style={{ paddingBottom: 0 }}
