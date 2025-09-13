@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
   basePath: process.env.BASE_PATH,
   /* config options here */
   pageExtensions: ["tsx", "md", "mdx"],
+  images: {
+    unoptimized: true,
+  },
 };
 
 const withMDX = createMDX({
@@ -18,6 +21,7 @@ const withMDX = createMDX({
       () => (tree) => {
         // 移除原始 Front Matter 节点
         tree.children = tree.children.filter(
+          /* eslint-disable @typescript-eslint/no-explicit-any */
           (node: any) => node.type !== "yaml",
         );
       },

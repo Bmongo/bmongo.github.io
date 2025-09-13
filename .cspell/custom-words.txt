@@ -1,5 +1,8 @@
 Bmongo
+CRDT
 everforest
 jsxs
 shiki
 vitesse
+ydoc
+ytext
