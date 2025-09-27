@@ -1,6 +1,7 @@
 import type { MDXComponents } from "mdx/types";
-import Image, { ImageProps } from "next/image";
+import type { ImageProps } from "next/image";
 import { Code } from "./components/Code";
+import PreviewImage from "./components/PreviewImage";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -54,7 +55,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       return <Code code={code} lang={lang} />;
     },
     img: (props: ImageProps) => (
-      <Image
+      <PreviewImage
         width={100}
         height={10}
         style={{ width: "100%", height: "auto" }}
